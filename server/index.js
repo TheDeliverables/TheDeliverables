@@ -1,4 +1,5 @@
 require("dotenv").config();
+console.log(process.env.TEST_VARIABLE); // Add this line
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require('body-parser');
@@ -19,4 +20,4 @@ app.use(bodyParser.json());
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
-app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
+app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))

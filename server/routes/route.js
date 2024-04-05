@@ -1,6 +1,12 @@
 const router = require("express").Router();
 const controller = require("../controllers/controller")
 
+
+
+router 
+  .route("/products")
+  .get(controller.getProduct)
+
   
   router.get('/reviews', async (req, res) => {
     try {

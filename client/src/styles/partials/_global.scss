@@ -16,17 +16,14 @@ body {
     a {
         text-decoration: none;
 
-        @include tablet {
-            &:hover {
-                text-decoration: underline;
-            }
-        }
+       &:hover{
+        text-decoration: underline;
+       }
 
-        @include desktop {
-            &:hover {
-                text-decoration: underline;
-            }
-        }
+       &:active{
+        color: $green;
+       }
+
     }
 
     ul {

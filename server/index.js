@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 
 //All api Routes (we can call this whatever)
-app.use('/api', routes)
+app.use('/helper', routes)
 
 
 

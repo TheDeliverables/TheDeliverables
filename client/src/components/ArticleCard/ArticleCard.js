@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import Display from "../../components/Display/Display";
 
 import harnessImg from '../../assets/images/helper_Images/pamphlet_HarnessPDF.png'
+import MarkdownDisplay from "../DisplayMD/MarkdownDisplay";
 
 function ArticleCard(props) {
     let imageSource = `${process.env.PUBLIC_URL}/assets/images/helper_Images/${props.image}`;

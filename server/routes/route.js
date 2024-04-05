@@ -13,23 +13,27 @@ const router = express.Router();
 
 router.get('/:productid/', async (req, res) => {
     try {
-      const products = await knex("/:productid")
-      .where({ id: req.params.productid})
-      .join("videos", "videos.productid", "products.productid")
-      .join("articles", "articles.productid", "products.productid")
-      .join("reviews", "reviews.productid", "products.productid");
-  
+      // const product = await knex("products")
+      // .where({ id: req.params.productid})
+
+      const video = await knex("videos")
+      .where({ product_id: req.params.productid})
+
+      const article = await knex("articles")
+      .where({ product_id: req.params.productid})
+      const all = [video,article]
+
       res
         .status(200)
-        .json(inventories);
+        .json(all);
   
     } catch (error) {
       console.error(error);
-      res.status(500).json({ error: 'Internal server error' });
+      res.status(500).json({ error: 'Unable to get product information' });
     }
   });
   
-  router.get('/:productid/:reviewid', async (req, res) => {
+  router.get('/:productid/reviews/:reviewid', async (req, res) => {
     try {
         const review = await knex("reviews")
           .where({ id: req.params.reviewid });
@@ -44,11 +48,11 @@ router.get('/:productid/', async (req, res) => {
     
   });
   
-  router.get('/:productid/:videoid', async (req, res) => {
+  router.get('/:productid/videos/:videoid', async (req, res) => {
     try {
-        const videos = await knex("vidoes")
-          .where({ id: req.params.videoid });
-        console.log(review)
+        const videos = await knex("videos")
+          .where({id: req.params.videoid });
+        console.log(videos)
 
         res.json(videos);
       } catch (error) {
@@ -58,7 +62,7 @@ router.get('/:productid/', async (req, res) => {
       }
     
   });
-  router.get('/:productid/:articleid', async (req, res) => {
+  router.get('/:productid/articles/:articleid', async (req, res) => {
     try {
         const article = await knex("articles")
           .where({ id: req.params.articleid });

@@ -8,16 +8,34 @@ export default function ProductKnowledgeBase() {
 
 
   useEffect(() => {
-    const fetchAll = async () => {
-      try {
-        const response = await axios.get(
-          'http://localhost:8080/helper/1/'
-        );
-        console.log(response.data)
+    const fetchProducts = async () => {
+        try {
+            const response = await axios.get(
+                'http://localhost:8080/helper/'
+            );
+            console.log("PRODUCTS",response)
 
-      } catch (error) {
-        console.error('Failed to fetch information', error);
-      }
+        } catch (error) {
+            console.error('Failed to fetch information', error);
+        }
+    };
+
+    fetchProducts();
+
+}, []);
+
+
+  useEffect(() => {
+    const fetchAll = async () => {
+        try {
+            const response = await axios.get(
+                'http://localhost:8080/helper/1/'
+            );
+            console.log("ALL:",response)
+
+        } catch (error) {
+            console.error('Failed to fetch information', error);
+        }
     };
 
     fetchAll();
@@ -28,11 +46,10 @@ export default function ProductKnowledgeBase() {
   useEffect(() => {
     const fecthVideo = async () => {
       try {
-        const response = await axios.get(
-          'http://localhost:8080/helper/1/videos/1'
-        );
-        console.log(response.data)
-
+          const response = await axios.get(
+              'http://localhost:8080/helper/1/videos/1'
+          );
+          console.log("VIDEOS",response)
       } catch (error) {
         console.error('Failed to fetch video', error);
       }
@@ -45,13 +62,13 @@ export default function ProductKnowledgeBase() {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const response = await axios.get(
-          'http://localhost:8080/helper/1/articles/1'
-        );
-        console.log(response.data)
+          const response = await axios.get(
+              'http://localhost:8080/helper/1/articles/1'
+          );
+          console.log("ARTICLES",response)
 
       } catch (error) {
-        console.error('Failed to fetch video', error);
+          console.error('Failed to fetch article', error);
       }
     };
 

@@ -1,0 +1,21 @@
+@use '../../styles/partials/global';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+
+.orders{
+    padding: 1.5rem 5.5rem;
+    display: flex;
+    justify-content: space-between;
+
+
+    &__heading-container{
+        width: 95%;
+    }
+
+    &__checkbox, &__filter-container{
+        display: flex;
+        align-items: center;
+
+    }
+}

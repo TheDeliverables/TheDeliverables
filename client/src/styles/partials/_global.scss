@@ -1,0 +1,116 @@
+@import './mixins';
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    background-color: $white;
+
+    @include font-styling(400, $green);
+
+    a {
+        text-decoration: none;
+
+        @include tablet {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        @include desktop {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    li {
+        list-style-type: none;
+
+        @include format-text(1.25rem, 1rem, 400);
+
+        @include tablet {
+            @include format-text(1.25rem, 1rem, 400);
+        }
+
+        @include desktop {
+            @include format-text(1.25rem, 1rem, 400);
+        }
+    }
+
+    h1 {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 400;
+        font-size: 30pt;
+        line-height: auto;
+        letter-spacing: 0;
+        fill: #45523E;
+
+    }
+
+    h2 {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: auto;
+        font-size: 16pt;
+        fill: #45523E;
+
+    }
+
+    h3 {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight:600;
+        font-size: 16pt;
+        line-height: auto;
+        letter-spacing: 0;
+        fill: #45523E;
+    }
+
+    p1 {
+        font-family: "SFPro";
+        font-weight: 600;
+        font-size: 14pt;
+        line-height: 150%;
+        letter-spacing: 0;
+        fill: #45523E;
+
+    }
+
+    p2 {
+        font-family: "SFPro";
+        font-weight: 400;
+        font-size: 14pt;
+        line-height: 150%;
+        letter-spacing: 0;
+        fill: #45523E;
+    }
+
+    button {
+ 
+        display: block;
+        border: none;
+        border-radius: 0.5rem;
+       
+        padding: 1rem;
+        margin: 0;
+        @include font-styling(400, $white);
+        letter-spacing: 0;
+        @include format-text(auto, 9pt, 400);
+        height: 2.5rem;
+        width: 100%;
+
+        &:hover {
+            transition: all ease-in-out 0.2s;
+        }
+    }
+}

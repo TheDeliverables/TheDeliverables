@@ -1,0 +1,63 @@
+@use '../../styles/partials/global';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem 5.5rem 2rem 5.5rem;
+
+    &__image{
+        width: 10vw;
+        margin: 1rem;
+    }
+
+    &__link{
+        height: 100%;
+    }
+
+    &__left-container{
+        display: flex;
+        align-items: center;
+        width: 65%;
+    }
+
+    &__lists{
+        display: flex;
+        flex-direction: row;
+        justify-items: center;
+    }
+
+    &__item{
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    &__right-container{
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    &__profile{
+        display: flex;
+        align-items: center;
+        padding-right: 1.5rem;
+    }
+
+    &__profile-img{
+        padding-right: 0.5rem;
+    }
+
+    &__button-container, &__button{
+        display: flex;
+        align-items: center;
+    }
+
+    &__button{
+        background-color: $blue;
+        padding: 1.5rem 1.75rem;
+    }
+}

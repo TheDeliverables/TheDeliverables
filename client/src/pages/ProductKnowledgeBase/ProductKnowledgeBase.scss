@@ -1,0 +1,26 @@
+@use '../../styles/partials/global';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+
+.product{
+    display: flex;
+    flex-direction: column;
+    &__heading{
+        
+    }
+    
+    &__container{
+        &-heading{
+            
+            
+        }
+        
+        &-cards{
+            gap: 1rem;
+            display: flex;
+            flex-direction: row;
+
+        }
+    }
+}

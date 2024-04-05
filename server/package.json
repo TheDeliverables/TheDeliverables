@@ -9,8 +9,9 @@
     "migrate:down": "knex migrate:down",
     "migrate:rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
-
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +22,8 @@
     "express": "^4.19.2",
     "knex": "^3.1.0",
     "mysql2": "^3.9.3",
-    "nodemon": "^3.1.0"
-  }
+    "nodemon": "^3.1.0",
+    "@snyk/protect": "latest"
+  },
+  "snyk": true
 }

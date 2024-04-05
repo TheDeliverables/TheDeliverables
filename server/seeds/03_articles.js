@@ -6,28 +6,32 @@ exports.seed = async function (knex) {
     await knex("articles").del();
     await knex("articles").insert([
         {
-            articleTitle: "10 Essential Rock Climbing Tips for Beginners",
-            author: "John Smith",
-            imageURL: "https://www.example.com/article1_image.jpg",
-            markDownURL: "https://www.example.com/article1_markdown",
-            column1: "",
-            column2: ""
+          articleTitle: "Adjusting Your Harness",
+          author: "Megan M",
+          imageURL: "article_HowToSetUp.png",
+          markDownURL: "https://example.com/climbing_shoes_article.md",
+          product_id: 1, // Link to Climbing Shoes (id: 1)
+          column1: "",
+          column2: ""
         },
         {
-            articleTitle: "Advanced Climbing Techniques: Smearing and Edging",
-            author: "Sarah Johnson",
-            imageURL: "https://www.example.com/article2_image.jpg",
-            markDownURL: "https://www.example.com/article2_markdown",
-            column1: "",
-            column2: ""
+          articleTitle: "Making Sure Everything's Right",
+          author: "Ashley P",
+          imageURL: "article_MakeThingsRight.png",
+          markDownURL: "https://example.com/climbing_harness_article.md",
+          product_id: 1, // Link to Climbing Harness (id: 2)
+          column1: "",
+          column2: ""
         },
         {
-            articleTitle: "Choosing the Right Climbing Rope: A Comprehensive Guide",
-            author: "Michael Davis",
-            imageURL: "https://www.example.com/article3_image.jpg",
-            markDownURL: "https://www.example.com/article3_markdown",
-            column1: "",
-            column2: ""
+          articleTitle: "How to Set Up: Boulder vs Mountain",
+          author: "Christopher B",
+          imageURL: "article_AdjustHarness.png",
+          markDownURL: "https://example.com/climbing_harness_article.md",
+          product_id: 1, // Link to Climbing Harness (id: 2)
+          column1: "",
+          column2: ""
         },
-    ]);
+        // Add more mock articles as needed
+      ]);
 };

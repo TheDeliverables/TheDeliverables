@@ -1,0 +1,27 @@
+@use '../../styles/partials/global';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+
+.display{
+    padding: 5rem;
+    z-index: 1;
+    position: absolute;padding:2rem;
+    height: 135vh;
+    width: 95vw;
+    top: 0;
+    left: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+        &__container{
+            padding-top: 3rem;
+        }
+   
+    .__title{
+        font-size: 2rem;
+        color: black;
+    }
+}

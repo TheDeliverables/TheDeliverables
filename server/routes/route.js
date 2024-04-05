@@ -1,62 +1,76 @@
-const router = require("express").Router();
-const controller = require("../controllers/controller")
+const express = require('express');
+const knex = require('knex')(require('../knexfile'));
+const router = express.Router();
 
 
+router.get('/', async (req, res) => {
+  try {
+    const product = await knex("products")
 
-router 
-  .route("/products")
-  .get(controller.getProducts)
 
-router 
-  .route("/products/:id")
-  .get(controller.getProduct)
+    res
+      .status(200)
+      .json(product);
 
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Unable to get product information' });
+  }
+});
+
+
+router.get('/:productid/', async (req, res) => {
+    try {
+      const product = await knex("products")
+      .where({ id: req.params.productid})
+
+      const video = await knex("videos")
+      .where({ product_id: req.params.productid})
+
+      const article = await knex("articles")
+      .where({ product_id: req.params.productid})
+      const all = [product,video,article]
+      console.log(all)
+      res
+        .status(200)
+        .json(all);
+  
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Unable to get product information' });
+    }
+  });
+  
 
   
-  // router.get('/reviews', async (req, res) => {
-  //   try {
-  //       const review = await knex("product")
-  //         .join("review", "post.id", "product.id")
-  //         .where({ id: req.params.id });
-    
-  //       res.json(review);
-  //     } catch (error) {
-  //       res.status(500).json({
-  //         message: `Unable to retrieve review for product with ID ${req.params.id}: ${error}`,
-  //       });
-  //     }
-    
-  // });
-  
-  // router.get('/videos', async (req, res) => {
-  //   try {
-  //       const video = await knex("product")
-  //         .join("video", "video.id", "product.id")
-  //         .where({ id: req.params.id });
-    
-  //       res.json(video);
-  //     } catch (error) {
-  //       res.status(500).json({
-  //         message: `Unable to retrieve videos for product with ID ${req.params.id}: ${error}`,
-  //       });
-  //     }
-    
-  // });
+  router.get('/:productid/videos/:videoid', async (req, res) => {
+    try {
+        const videos = await knex("videos")
+          .where({id: req.params.videoid });
+        console.log(videos)
 
-  // router.get('/articles', async (req, res) => {
-  //   try {
-  //       const article = await knex("article")
-  //         .join("article", "article.id", "product.id")
-  //         .where({ id: req.params.id });
+        res.json(videos);
+      } catch (error) {
+        res.status(500).json({
+          message: `Unable to retrieve review for video with ID ${req.params.videoid}: ${error}`,
+        });
+      }
     
-  //       res.json(article);
-  //     } catch (error) {
-  //       res.status(500).json({
-  //         message: `Unable to retrieve articles for products with ID ${req.params.id}: ${error}`,
-  //       });
-  //     }
+  });
+  router.get('/:productid/articles/:articleid', async (req, res) => {
+    try {
+        const article = await knex("articles")
+          .where({ id: req.params.articleid });
+        console.log(article)
+
+        res.json(article);
+      } catch (error) {
+        res.status(500).json({
+          message: `Unable to retrieve review for article with ID ${req.params.articleid}: ${error}`,
+        });
+      }
     
-  // });
+  });
 
 
 module.exports = router;

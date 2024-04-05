@@ -1,4 +1,5 @@
 require("dotenv").config();
+console.log(process.env.TEST_VARIABLE); // Add this line
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require('body-parser');

@@ -1,16 +1,22 @@
 require("dotenv").config();
 const express = require("express");
-const app = express();
 const cors = require("cors");
-const userRoutes = require("./routes/route");
-const PORT = process.env.PORT || 8080;
+const bodyParser = require('body-parser');
 
-app.use(cors());
+const app = express();
+const PORT = process.env.PORT;
+
+// const warehouseRoutes = require("./routes/warehouse-routes");
+// const inventoryRoutes = require("./routes/inventory-routes");
+
 app.use(express.json());
+app.use(cors());
+app.use(bodyParser.json());
 
-// Routes
-app.use("/api/", userRoutes);
+// app.use("/api/warehouses", warehouseRoutes);
 
-app.listen(PORT, () => {
-	console.log(`Listening on port ${PORT}`);
-});
+// app.use("/api/inventories", inventoryRoutes);
+
+app.get("/", (req, res) => res.send("Hello World!"));
+
+app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));

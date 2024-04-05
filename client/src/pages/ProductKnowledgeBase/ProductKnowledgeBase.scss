@@ -1,18 +1,18 @@
 .product{
     display: flex;
     flex-direction: column;
-
     &__heading{
-
+        
     }
-
+    
     &__container{
         &-heading{
-
-
+            
+            
         }
-
+        
         &-cards{
+            gap: 1rem;
             display: flex;
             flex-direction: row;
 

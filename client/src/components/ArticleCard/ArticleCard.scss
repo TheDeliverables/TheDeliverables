@@ -1,6 +1,7 @@
 .card {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 1rem;
     background-color: white;
     width: 325px;
@@ -13,7 +14,9 @@
 
     }
 
-    &__textContent {}
+    &__textContent {
+        
+    }
 
 
     button {

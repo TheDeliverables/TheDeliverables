@@ -40,28 +40,27 @@ export default function ProductKnowledgeBase() {
 
     fetchAll();
 
-}, []);
+  }, []);
 
 
-useEffect(() => {
-  const fecthVideo = async () => {
+  useEffect(() => {
+    const fecthVideo = async () => {
       try {
           const response = await axios.get(
               'http://localhost:8080/helper/1/videos/1'
           );
           console.log("VIDEOS",response)
-
       } catch (error) {
-          console.error('Failed to fetch video', error);
+        console.error('Failed to fetch video', error);
       }
-  };
+    };
 
-  fecthVideo();
+    fecthVideo();
 
-}, []);
+  }, []);
 
-useEffect(() => {
-  const fetchArticle = async () => {
+  useEffect(() => {
+    const fetchArticle = async () => {
       try {
           const response = await axios.get(
               'http://localhost:8080/helper/1/articles/1'
@@ -71,41 +70,42 @@ useEffect(() => {
       } catch (error) {
           console.error('Failed to fetch article', error);
       }
-  };
+    };
 
-  fetchArticle();
+    fetchArticle();
 
-}, []);
+  }, []);
 
   return (
     <main>
       <section className='product'>
+          <h1 className='product__heading'> Product Knowledge Base </h1>
+
         <section className='product__container'>
-          <h1 className='product__heading'>
-            Product Knowledge Base
-          </h1>
-          <ArticleCard />
+          <h1 className='product__container-heading'>Product Pamphlets</h1>
+          <section className='product__container-cards' >
+            <ArticleCard />
+            <ArticleCard />
+          </section>
         </section>
+
         <section className='product__container'>
-          <h3 className='product__text'>
-           Product Pamphlets
-          </h3>
-          <div className='product__card'></div>
+          <h1 className='product__container-heading'>How-To Videos</h1>
+          <section className='product__container-cards' >
+            <ArticleCard />
+            <ArticleCard />
+          </section>
         </section>
+
         <section className='product__container'>
-          <h3 className='product__text'>
-            How-To Videos
-          </h3>
-          <div className='product__card'></div>
+          <h1 className='product__container-heading'>Article</h1>
+          <section className='product__container-cards' >
+            <ArticleCard />
+            <ArticleCard />
+          </section>
         </section>
-        <section className='product__container'>
-          <h3 className='product__text'>
-            Articles
-          </h3>
-          <div className='product__card'></div>
-        </section>  
+
       </section>
-      
     </main>
   )
 }

@@ -1,6 +1,5 @@
 const router = require("express").Router();
-const knex = require('knex')(require('../knexfile'));
-const express = require('express');
+const controller = require("../controllers/controller")
 
   
   router.get('/reviews', async (req, res) => {

@@ -25,7 +25,7 @@ export default function ProductKnowledgeBase() {
 
 
 useEffect(() => {
-  const fechVideo = async () => {
+  const fecthVideo = async () => {
       try {
           const response = await axios.get(
               'http://localhost:8080/helper/1/videos/1'
@@ -37,10 +37,26 @@ useEffect(() => {
       }
   };
 
-  fechVideo();
+  fecthVideo();
 
 }, []);
 
+useEffect(() => {
+  const fetchArticle = async () => {
+      try {
+          const response = await axios.get(
+              'http://localhost:8080/helper/1/articles/1'
+          );
+          console.log(response)
+
+      } catch (error) {
+          console.error('Failed to fetch video', error);
+      }
+  };
+
+  fetchArticle();
+
+}, []);
 
   return (
     <main>

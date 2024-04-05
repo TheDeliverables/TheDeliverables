@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './ProductKnowledgeBase.scss'
 import axios from "axios"
+import ArticleCard from '../../components/ArticleCard/ArticleCard';
 
 
 export default function ProductKnowledgeBase() {
@@ -83,6 +84,7 @@ useEffect(() => {
           <h1 className='product__heading'>
             Product Knowledge Base
           </h1>
+          <ArticleCard />
         </section>
         <section className='product__container'>
           <h3 className='product__text'>

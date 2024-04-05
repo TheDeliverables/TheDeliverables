@@ -6,18 +6,18 @@
 exports.up = function (knex) {
     return knex.schema.createTable('videos', function (table) {
         table.increments('id').primary();
-        table.string('videoURL');
         table.string('title');
-        table.string('quickDescription');
-        table.string('description');
-        table.string('column1'); 
+        table.string('shortDescription');
+        table.string('fullDescription');
+        table.string('videoURL');
+        table.integer('product_id');
+        table.string('column1');
         table.string('column2');
         table.timestamp("created_at").defaultTo(knex.fn.now());
-        table.integer('product_id').unsigned().references('id').inTable('products');
         table
-          .timestamp("updated_at")
-          .defaultTo(knex.raw("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"));
-      });
+            .timestamp("updated_at")
+            .defaultTo(knex.raw("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"));
+    });
 };
 
 /**

@@ -25,3 +25,5 @@ module.exports = {
     getProducts,
     getProduct
 }
+
+'/api/helper/:productID/articles/:id'

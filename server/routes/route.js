@@ -21,16 +21,16 @@ router.get('/', async (req, res) => {
 
 router.get('/:productid/', async (req, res) => {
     try {
-      // const product = await knex("products")
-      // .where({ id: req.params.productid})
+      const product = await knex("products")
+      .where({ id: req.params.productid})
 
       const video = await knex("videos")
       .where({ product_id: req.params.productid})
 
       const article = await knex("articles")
       .where({ product_id: req.params.productid})
-      const all = [video,article]
-
+      const all = [product,video,article]
+      console.log(all)
       res
         .status(200)
         .json(all);

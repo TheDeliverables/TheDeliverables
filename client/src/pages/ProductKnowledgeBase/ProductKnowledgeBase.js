@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import './ProductKnowledgeBase.scss'
 import axios from "axios"
-import ArticleCard from '../../components/ArticleCard/ArticleCard';
+import ArticleCard from "../../components/ArticleCard/ArticleCard";
 
 
 export default function ProductKnowledgeBase() {
+  const [products, setProducts] = useState([])
+  const [videos, setVideos] = useState([])
+  const [articles, setArticles] = useState([])
+  const [details, setProductsDetails] = useState([])
+  const [productDetails, setProductsDetailsDetails] = useState([])
+  const [videoDetails, setVideoDetails] = useState([])
+  const [articleDetails, setArticleDetails] = useState([])
+
 
 
   useEffect(() => {
@@ -14,6 +22,7 @@ export default function ProductKnowledgeBase() {
                 'http://localhost:8080/helper/'
             );
             console.log("PRODUCTS",response)
+            setProducts(response.data)
 
         } catch (error) {
             console.error('Failed to fetch information', error);
@@ -32,6 +41,10 @@ export default function ProductKnowledgeBase() {
                 'http://localhost:8080/helper/1/'
             );
             console.log("ALL:",response)
+            setProductsDetails(response.data)
+            setProductsDetailsDetails(response.data[0])
+            setVideoDetails(response.data[1])
+            setArticleDetails(response.data[2])
 
         } catch (error) {
             console.error('Failed to fetch information', error);
@@ -40,41 +53,48 @@ export default function ProductKnowledgeBase() {
 
     fetchAll();
 
-  }, []);
+}, []);
 
 
-  useEffect(() => {
-    const fecthVideo = async () => {
+useEffect(() => {
+  const fecthVideo = async () => {
       try {
           const response = await axios.get(
               'http://localhost:8080/helper/1/videos/1'
           );
           console.log("VIDEOS",response)
+          setVideos(response.data)
+
       } catch (error) {
-        console.error('Failed to fetch video', error);
+          console.error('Failed to fetch video', error);
       }
-    };
+  };
 
-    fecthVideo();
+  fecthVideo();
 
-  }, []);
+}, []);
 
-  useEffect(() => {
-    const fetchArticle = async () => {
+useEffect(() => {
+  const fetchArticle = async () => {
       try {
           const response = await axios.get(
               'http://localhost:8080/helper/1/articles/1'
           );
           console.log("ARTICLES",response)
+          setArticles(response.data)
 
       } catch (error) {
-          console.error('Failed to fetch article', error);
+          console.error('Failed to fetch artlces', error);
       }
-    };
+  };
 
-    fetchArticle();
+  fetchArticle();
 
-  }, []);
+}, []);
+  console.log("product details",productDetails)
+  console.log("video details",videoDetails)
+  console.log("article details",articleDetails)
+
 
   return (
     <main>
@@ -84,24 +104,27 @@ export default function ProductKnowledgeBase() {
         <section className='product__container'>
           <h1 className='product__container-heading'>Product Pamphlets</h1>
           <section className='product__container-cards' >
-            <ArticleCard />
-            <ArticleCard />
+              {productDetails.map((product) => (
+                  <ArticleCard type="pamplet" image={product.imageURL} itemName={product.itemName} description={product.description} id={product.id} />
+              ))}
           </section>
         </section>
 
         <section className='product__container'>
           <h1 className='product__container-heading'>How-To Videos</h1>
           <section className='product__container-cards' >
-            <ArticleCard />
-            <ArticleCard />
+                {videoDetails.map((product) => (
+                  <ArticleCard type="video" image={product.videoURL} itemName={product.title} description={product.shortDescription} id={product.id} />
+              ))}
           </section>
         </section>
 
         <section className='product__container'>
           <h1 className='product__container-heading'>Article</h1>
           <section className='product__container-cards' >
-            <ArticleCard />
-            <ArticleCard />
+               {articleDetails.map((product) => (
+                  <ArticleCard type="article" image={product.imageURL} itemName={product.articleTitle} description={product.author} id={product.id} />
+              ))}
           </section>
         </section>
 

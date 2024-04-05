@@ -2,16 +2,20 @@ import "./ArticleCard.scss"
 
 import harnessImg from '../../assets/images/helper_Images/pamphlet_HarnessPDF.png'
 
-function ArticleCard() {
+function ArticleCard(props) {
+    console.log(props.image)
+    function onClickHandler(){
+
+    }
     return (
         <>
             <div className="card" >
-                <img src={harnessImg} />
+                <img src={props.image} />
                 <div className="card__textContent" >
-                    <p>"Pamphlet Title"</p>
-                    <p>Pamphlet Sub Title</p>
+                    <p>{props.itemName}</p>
+                    <p>{props.description}</p>
                 </div>
-                <button>View PROP_TYPE</button>
+                <button>View {props.type} onClick={onClickHandler}</button>
             </div>
         </>
     )

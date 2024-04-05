@@ -21,6 +21,7 @@ export default function ProductKnowledgeBase() {
             const response = await axios.get(
                 'http://localhost:8080/helper/'
             );
+            console.log("PRODUCTS",response)
             setProducts(response.data)
 
         } catch (error) {
@@ -39,6 +40,7 @@ export default function ProductKnowledgeBase() {
             const response = await axios.get(
                 'http://localhost:8080/helper/1/'
             );
+            console.log("ALL:",response)
             setProductsDetails(response.data)
             setProductsDetailsDetails(response.data[0])
             setVideoDetails(response.data[1])
@@ -54,6 +56,44 @@ export default function ProductKnowledgeBase() {
 }, []);
 
 
+useEffect(() => {
+  const fecthVideo = async () => {
+      try {
+          const response = await axios.get(
+              'http://localhost:8080/helper/1/videos/1'
+          );
+          console.log("VIDEOS",response)
+          setVideos(response.data)
+
+      } catch (error) {
+          console.error('Failed to fetch video', error);
+      }
+  };
+
+  fecthVideo();
+
+}, []);
+
+useEffect(() => {
+  const fetchArticle = async () => {
+      try {
+          const response = await axios.get(
+              'http://localhost:8080/helper/1/articles/1'
+          );
+          console.log("ARTICLES",response)
+          setArticles(response.data)
+
+      } catch (error) {
+          console.error('Failed to fetch artlces', error);
+      }
+  };
+
+  fetchArticle();
+
+}, []);
+  console.log("product details",productDetails)
+  console.log("video details",videoDetails)
+  console.log("article details",articleDetails)
 
 
   return (

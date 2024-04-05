@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react'
 import harnessImg from '../../assets/images/helper_Images/pamphlet_HarnessPDF.png'
 
 function ArticleCard(props) {
+    let imageSource = `${process.env.PUBLIC_URL}/assets/images/helper_Images/${props.image}`;
     const [products, setProducts] = useState([])
     const [videos, setVideos] = useState([])
     const [articles, setArticles] = useState([])
@@ -49,10 +50,14 @@ function ArticleCard(props) {
     function onClickHandler(){
         
     }
+
+    // let imageSource = `../../assets/images/helper_Images/${props.image}`
+
+    console.log(imageSource);
     return (
         <>
             <div className="card" >
-                <img src={props.image} />
+                <img src={imageSource} />
                 <div className="card__textContent" >
                     <p>{props.itemName}</p>
                     <p>{props.description}</p>

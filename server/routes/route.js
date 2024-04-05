@@ -3,13 +3,21 @@ const knex = require('knex')(require('../knexfile'));
 const router = express.Router();
 
 
-// router 
-//   .route("/products")
-//   .get(controller.getProducts)
+router.get('/', async (req, res) => {
+  try {
+    const product = await knex("products")
 
-// router 
-//   .route("/products/:id")
-//   .get(controller.getProduct)
+
+    res
+      .status(200)
+      .json(product);
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Unable to get product information' });
+  }
+});
+
 
 router.get('/:productid/', async (req, res) => {
     try {
@@ -33,20 +41,7 @@ router.get('/:productid/', async (req, res) => {
     }
   });
   
-  router.get('/:productid/reviews/:reviewid', async (req, res) => {
-    try {
-        const review = await knex("reviews")
-          .where({ id: req.params.reviewid });
-        console.log(review)
 
-        res.json(review);
-      } catch (error) {
-        res.status(500).json({
-          message: `Unable to retrieve review for product with ID ${req.params.id}: ${error}`,
-        });
-      }
-    
-  });
   
   router.get('/:productid/videos/:videoid', async (req, res) => {
     try {
@@ -57,7 +52,7 @@ router.get('/:productid/', async (req, res) => {
         res.json(videos);
       } catch (error) {
         res.status(500).json({
-          message: `Unable to retrieve review for product with ID ${req.params.id}: ${error}`,
+          message: `Unable to retrieve review for video with ID ${req.params.videoid}: ${error}`,
         });
       }
     
@@ -66,12 +61,12 @@ router.get('/:productid/', async (req, res) => {
     try {
         const article = await knex("articles")
           .where({ id: req.params.articleid });
-        console.log(review)
+        console.log(article)
 
         res.json(article);
       } catch (error) {
         res.status(500).json({
-          message: `Unable to retrieve review for product with ID ${req.params.id}: ${error}`,
+          message: `Unable to retrieve review for article with ID ${req.params.articleid}: ${error}`,
         });
       }
     

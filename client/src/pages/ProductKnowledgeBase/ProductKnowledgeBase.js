@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './ProductKnowledgeBase.scss'
+
 import axios from "axios"
 import ArticleCard from "../../components/ArticleCard/ArticleCard";
 
@@ -102,7 +103,7 @@ useEffect(() => {
           <h1 className='product__heading'> Product Knowledge Base </h1>
 
         <section className='product__container'>
-          <h1 className='product__container-heading'>Product Pamphlets</h1>
+          <h3 className='product__container-heading'>Product Pamphlets</h3>
           <section className='product__container-cards' >
               {productDetails.map((product) => (
                   <ArticleCard type="pamplet" image={product.imageURL} itemName={product.itemName} description={product.description} id={product.id} />
@@ -111,7 +112,7 @@ useEffect(() => {
         </section>
 
         <section className='product__container'>
-          <h1 className='product__container-heading'>How-To Videos</h1>
+          <h3 className='product__container-heading'>How-To Videos</h3>
           <section className='product__container-cards' >
                 {videoDetails.map((product) => (
                   <ArticleCard type="video" image={product.videoURL} itemName={product.title} description={product.shortDescription} id={product.id} />
@@ -120,7 +121,7 @@ useEffect(() => {
         </section>
 
         <section className='product__container'>
-          <h1 className='product__container-heading'>Article</h1>
+          <h3 className='product__container-heading'>Article</h3>
           <section className='product__container-cards' >
                {articleDetails.map((product) => (
                   <ArticleCard type="article" image={product.imageURL} itemName={product.articleTitle} description={product.author} id={product.id} />

@@ -6,7 +6,7 @@ exports.seed = async function (knex) {
     await knex("articles").del();
     await knex("articles").insert([
         {
-          articleTitle: "How to Set Up: Boulder vs Mountain",
+          articleTitle: "Adjusting Your Harness",
           author: "Megan M",
           imageURL: "article_HowToSetUp.png",
           markDownURL: "https://example.com/climbing_shoes_article.md",
@@ -24,7 +24,7 @@ exports.seed = async function (knex) {
           column2: ""
         },
         {
-          articleTitle: "Adjusting Your Harness",
+          articleTitle: "How to Set Up: Boulder vs Mountain",
           author: "Christopher B",
           imageURL: "article_AdjustHarness.png",
           markDownURL: "https://example.com/climbing_harness_article.md",

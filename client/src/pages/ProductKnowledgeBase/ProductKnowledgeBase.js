@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './ProductKnowledgeBase.scss'
 import axios from "axios"
+import ArticleCard from '../../components/ArticleCard/ArticleCard';
 
 
 export default function ProductKnowledgeBase() {
@@ -12,7 +13,7 @@ export default function ProductKnowledgeBase() {
             const response = await axios.get(
                 'http://localhost:8080/helper/1/'
             );
-            console.log(response)
+            console.log(response.data)
 
         } catch (error) {
             console.error('Failed to fetch information', error);
@@ -30,7 +31,7 @@ useEffect(() => {
           const response = await axios.get(
               'http://localhost:8080/helper/1/videos/1'
           );
-          console.log(response)
+          console.log(response.data)
 
       } catch (error) {
           console.error('Failed to fetch video', error);
@@ -47,7 +48,7 @@ useEffect(() => {
           const response = await axios.get(
               'http://localhost:8080/helper/1/articles/1'
           );
-          console.log(response)
+          console.log(response.data)
 
       } catch (error) {
           console.error('Failed to fetch video', error);
@@ -65,6 +66,7 @@ useEffect(() => {
           <h1 className='product__heading'>
             Product Knowledge Base
           </h1>
+          <ArticleCard />
         </section>
         <section className='product__container'>
           <h3 className='product__text'>

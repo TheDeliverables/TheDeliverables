@@ -9,7 +9,7 @@
 
 body {
     width: 100vw;
-    background-color: $white;
+    background-color: $light-grey;
 
     @include font-styling(400, $green);
 
@@ -76,23 +76,14 @@ body {
         fill: #45523E;
     }
 
-    p1 {
-        font-family: "SFPro";
-        font-weight: 600;
-        font-size: 14pt;
-        line-height: 150%;
-        letter-spacing: 0;
-        fill: #45523E;
-
-    }
-
-    p2 {
+    p {
         font-family: "SFPro";
         font-weight: 400;
         font-size: 14pt;
         line-height: 150%;
         letter-spacing: 0;
         fill: #45523E;
+
     }
 
     button {
@@ -103,7 +94,7 @@ body {
        
         padding: 1rem;
         margin: 0;
-        @include font-styling(400, $white);
+        @include font-styling(400, $fill-white);
         letter-spacing: 0;
         @include format-text(auto, 9pt, 400);
         height: 2.5rem;

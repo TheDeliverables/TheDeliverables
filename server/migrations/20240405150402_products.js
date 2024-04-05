@@ -9,7 +9,6 @@ exports.up = function (knex) {
     table.text('description');
     table.decimal('price');
     table.string('imageURL');
-    table.integer('product_id');
     table.string('column1');
     table.string('column2');
     table.timestamp("created_at").defaultTo(knex.fn.now());

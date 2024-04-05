@@ -9,6 +9,8 @@ exports.up = function (knex) {
       table.text('description');
       table.decimal('price');
       table.string('imageURL');
+      table.string('column1'); 
+      table.string('column2');
       table.timestamp("created_at").defaultTo(knex.fn.now());
       table
         .timestamp("updated_at")

@@ -4,6 +4,7 @@ import filter from '../../assets/icons/filter.png'
 import grid from '../../assets/icons/grid.png'
 import list from '../../assets/icons/list.png'
 import './Orders.scss'
+import OrdersList from '../../components/OrdersList/OrdersList'
 
 export default function Orders() {
     const [isGrid, setIsGrid] = useState(true);
@@ -48,9 +49,9 @@ export default function Orders() {
                         alt="list view" />
 
                 </label>
-                    
             </div>
         </section>
+        <OrdersList />
     </main>
   )
 }
